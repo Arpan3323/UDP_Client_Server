@@ -5,9 +5,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 /*
-    Authors: Arpan Srivastava
-             Joe Szempruch
-             Colby Deason
+    Author: Arpan Srivastava
 */
 
 class UDPClient {

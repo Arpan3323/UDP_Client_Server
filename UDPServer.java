@@ -1,11 +1,8 @@
 import java.io.*;
 import java.net.*;
-import java.util.*;
 import java.nio.file.*;
 /*
-    Authors: Arpan Srivastava
-             Joe Szempruch
-             Colby Deason
+    Author: Arpan Srivastava
 */
 
 class UDPServer {
