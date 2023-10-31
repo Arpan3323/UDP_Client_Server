@@ -64,10 +64,6 @@ The `ClientHandler` class represents a worker thread responsible for handling cl
 - **No Parameters**.
 - **No Return Value**.
 
-This documentation provides an overview of the `UDPServer` class and its methods, along with their functionality and parameters.
-
-You can use this markdown format to document your code. If you have further questions or need more detailed explanations, feel free to ask.
-
 ## Usage
 1. Compile and run the `UDPClient` and `UDPServer` classes separately.
 2. Enter the server IP address, gremlin probability, and HTTP GET request in the client application.
