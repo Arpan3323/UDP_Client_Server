@@ -28,15 +28,45 @@ The `UDPClient` class represents a client application that communicates with a s
 ### Description
 The `UDPServer` class represents a server application that communicates with clients using UDP socket programming principles. It listens for incoming requests, retrieves requested files, and sends the data back to the clients as packets. It handles file not found errors and generates appropriate HTTP headers.
 
-### Class Methods
-
 #### `main(String[] args) throws Exception`
-- Entry point of the UDPServer application.
-- Creates a DatagramSocket to listen for incoming packets on port 10005.
-- Receives packets from clients, retrieves requested files, and generates appropriate HTTP headers.
-- Sends data packets to the clients in chunks.
-- Sends a null byte packet to signal the end of transmission.
-- Exits the program.
+- **Description**: The `main` method is the entry point of the UDPServer application.
+- **Functionality**:
+  - Creates a DatagramSocket to listen for incoming packets on port 10005.
+  - Sets up an `ExecutorService` to handle multiple client requests concurrently.
+  - Loops indefinitely to receive packets from clients and launch a new `ClientHandler` for each client request.
+- **Parameters**:
+  - `String[] args`: Command-line arguments (not used).
+- **Throws**:
+  - `Exception` if any error occurs during execution.
+
+### Nested Class `ClientHandler`
+
+The `ClientHandler` class represents a worker thread responsible for handling client requests.
+
+#### Constructor `ClientHandler(DatagramPacket receivePacket, DatagramSocket serverSocket)`
+
+- **Description**: The constructor initializes a `ClientHandler` instance with the necessary parameters.
+- **Parameters**:
+  - `DatagramPacket receivePacket`: The packet received from the client.
+  - `DatagramSocket serverSocket`: The server socket for sending responses to the client.
+
+#### Method `run()`
+
+- **Description**: The `run` method is called when the `ClientHandler` thread is started.
+- **Functionality**:
+  - Retrieves the client's IP address, port, and the request data from the `receivePacket`.
+  - Extracts the requested file name from the request.
+  - Attempts to read the requested file and handle file not found errors.
+  - Constructs an HTTP header with appropriate status code and content length.
+  - Sends the header to the client as packets.
+  - Sends the file content to the client as packets.
+  - Sends a null byte packet to signal the end of transmission.
+- **No Parameters**.
+- **No Return Value**.
+
+This documentation provides an overview of the `UDPServer` class and its methods, along with their functionality and parameters.
+
+You can use this markdown format to document your code. If you have further questions or need more detailed explanations, feel free to ask.
 
 ## Usage
 1. Compile and run the `UDPClient` and `UDPServer` classes separately.
